@@ -11,18 +11,18 @@ import android.widget.RelativeLayout;
 
 import androidx.recyclerview.widget.RecyclerView;
 
-import in.balakrishnan.easycam.R;
-import in.balakrishnan.easycam.CaptureData;
-
 import java.util.List;
+
+import in.balakrishnan.easycam.CaptureData;
+import in.balakrishnan.easycam.R;
 
 
 public class PreviewRecyclerViewAdapter extends RecyclerView.Adapter<PreviewRecyclerViewAdapter.ViewHolder> {
 
+    private static final String TAG = "PreviewRecyclerViewAdap";
     private final OnListFragmentInteractionListener mListener;
     private List<CaptureData> mValues;
     private int currPos = 0;
-    private static final String TAG = "PreviewRecyclerViewAdap";
 
     PreviewRecyclerViewAdapter(List<CaptureData> items, OnListFragmentInteractionListener listener) {
         mValues = items;

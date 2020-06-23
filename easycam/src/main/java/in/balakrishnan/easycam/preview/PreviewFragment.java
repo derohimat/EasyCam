@@ -16,17 +16,17 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import in.balakrishnan.easycam.R;
+import java.io.File;
+import java.util.ArrayList;
+import java.util.List;
+
 import in.balakrishnan.easycam.CameraControllerActivity;
 import in.balakrishnan.easycam.CameraControllerViewModel;
 import in.balakrishnan.easycam.CaptureData;
 import in.balakrishnan.easycam.FileUtils;
+import in.balakrishnan.easycam.R;
 import in.balakrishnan.easycam.StatusBarUtil;
 import in.balakrishnan.easycam.capture.NumberToWords;
-
-import java.io.File;
-import java.util.ArrayList;
-import java.util.List;
 
 import static in.balakrishnan.easycam.BitmapHelper.calculateInSampleSize;
 

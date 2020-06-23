@@ -7,7 +7,6 @@ import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.MutableLiveData;
 
-
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
@@ -33,16 +32,16 @@ public class CameraControllerViewModel extends AndroidViewModel {
     CameraSelection cameraSelection = CameraSelection.BACK;
     FlashType flashType = FlashType.OFF;
 
+    public CameraControllerViewModel(@NonNull Application application) {
+        super(application);
+    }
+
     public FlashType getFlashType() {
         return flashType;
     }
 
     public void setFlashType(FlashType flashType) {
         this.flashType = flashType;
-    }
-
-    public CameraControllerViewModel(@NonNull Application application) {
-        super(application);
     }
 
     public CameraSelection getCameraSelection() {

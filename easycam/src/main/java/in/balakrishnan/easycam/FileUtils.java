@@ -7,8 +7,6 @@ import android.util.Log;
 
 import androidx.annotation.NonNull;
 
-import in.balakrishnan.easycam.R;
-
 import java.io.File;
 import java.io.FileOutputStream;
 

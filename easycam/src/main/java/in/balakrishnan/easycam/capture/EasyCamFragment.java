@@ -412,14 +412,6 @@ public abstract class EasyCamFragment extends Fragment
         this.cameraSelection = cameraSelection;
     }
 
-    public void setFullscreenMode(boolean fullscreenMode) {
-        this.fullscreenMode = fullscreenMode;
-    }
-
-    public void setManualFocus(boolean manualFocus) {
-        this.manualFocus = manualFocus;
-    }
-
     public boolean isFlashSupported() {
         return mFlashSupported;
     }
@@ -428,12 +420,20 @@ public abstract class EasyCamFragment extends Fragment
         return fullscreenMode;
     }
 
+    public void setFullscreenMode(boolean fullscreenMode) {
+        this.fullscreenMode = fullscreenMode;
+    }
+
     public boolean isCameraOpen() {
         return isCameraOpen;
     }
 
     public boolean isManualFocus() {
         return manualFocus;
+    }
+
+    public void setManualFocus(boolean manualFocus) {
+        this.manualFocus = manualFocus;
     }
 
     /**

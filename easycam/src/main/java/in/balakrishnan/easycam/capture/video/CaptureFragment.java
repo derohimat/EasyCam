@@ -39,7 +39,7 @@ public class CaptureFragment extends Camera2Fragment implements Camera2Listener 
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                onCameraControlClick((ImageView)v);
+                onCameraControlClick((ImageView) v);
             }
         });
     }
@@ -56,7 +56,7 @@ public class CaptureFragment extends Camera2Fragment implements Camera2Listener 
             File location = context.getExternalFilesDir("video");
             file = File.createTempFile(String.valueOf(new Date().getTime()), ".mp4", location);
         } catch (IOException e) {
-            file = new File(context.getExternalFilesDir("video"),String.valueOf(new Date().getTime()) + ".mp4");
+            file = new File(context.getExternalFilesDir("video"), new Date().getTime() + ".mp4");
         }
         return file;
     }

@@ -46,8 +46,8 @@
         android:layout_margin="16dp"
         android:layout_marginTop="32dp"
         android:elevation="8dp"
-        android:src="@drawable/ic_switch_camera"
         android:padding="8dp"
+        android:src="@drawable/ic_switch_camera"
         android:visibility="visible"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />

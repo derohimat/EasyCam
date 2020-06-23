@@ -2,8 +2,6 @@ package in.balakrishnan.easycam;
 
 import android.util.Log;
 
-import in.balakrishnan.easycam.R;
-
 
 /**
  * This CameraBundleBuilder is used to create {@link CameraBundle} for {@link CameraControllerActivity}

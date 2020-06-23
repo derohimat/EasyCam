@@ -1,9 +1,9 @@
 package in.balakrishnan.easycam.capture;
 
 
-import in.balakrishnan.easycam.R;
 import in.balakrishnan.easycam.CameraBundle;
 import in.balakrishnan.easycam.CameraControllerActivity;
+import in.balakrishnan.easycam.R;
 
 /**
  * This class is used to configure {@link CaptureFragment} values are obtained from {@link CameraBundle}
