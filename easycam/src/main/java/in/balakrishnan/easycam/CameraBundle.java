@@ -82,6 +82,7 @@ public class CameraBundle implements Parcelable {
     private String bucket;
     private boolean clearBucket;
     private boolean preLoaded;
+    private boolean useFrontCamera;
     private boolean setResultOnBackPressed;
 
     public CameraBundle(
@@ -102,7 +103,8 @@ public class CameraBundle implements Parcelable {
             String className,
             boolean clearBucket,
             boolean preLoaded,
-            boolean setResultOnBackPressed) {
+            boolean setResultOnBackPressed,
+            boolean useFrontCamera) {
         this.previewIconVisibility = previewIconVisibility;
         this.previewPageRedirection = previewPageRedirection;
         this.previewEnableCount = previewEnableCount;
@@ -121,6 +123,7 @@ public class CameraBundle implements Parcelable {
         this.clearBucket = clearBucket;
         this.preLoaded = preLoaded;
         this.setResultOnBackPressed = setResultOnBackPressed;
+        this.useFrontCamera = useFrontCamera;
         Log.d(TAG, "CameraBundle: " + setResultOnBackPressed);
     }
 
@@ -144,6 +147,7 @@ public class CameraBundle implements Parcelable {
         clearBucket = in.readByte() != 0;
         preLoaded = in.readByte() != 0;
         setResultOnBackPressed = in.readByte() != 0;
+        useFrontCamera = in.readByte() != 0;
     }
 
     public String getClassName() {
@@ -179,6 +183,7 @@ public class CameraBundle implements Parcelable {
         dest.writeByte((byte) (clearBucket ? 1 : 0));
         dest.writeByte((byte) (preLoaded ? 1 : 0));
         dest.writeByte((byte) (setResultOnBackPressed ? 1 : 0));
+        dest.writeByte((byte) (useFrontCamera ? 1 : 0));
 
     }
 
@@ -314,6 +319,14 @@ public class CameraBundle implements Parcelable {
         this.enableRotationAnimation = enableRotationAnimation;
     }
 
+    public boolean isUseFrontCamera() {
+        return useFrontCamera;
+    }
+
+    public void setUseFrontCamera(boolean useFrontCamera) {
+        this.useFrontCamera = useFrontCamera;
+    }
+
     @Override
     public String toString() {
         return "CameraBundle{" +
@@ -330,6 +343,7 @@ public class CameraBundle implements Parcelable {
                 ", fullscreenMode=" + fullscreenMode +
                 ", manualFocus=" + manualFocus +
                 ", enableRotationAnimation=" + enableRotationAnimation +
+                ", useFrontCamera=" + useFrontCamera +
                 '}';
     }
 }

@@ -73,6 +73,7 @@ public class CameraBundleBuilder {
 
     private boolean setResultOnBackPressed = false;
 
+    private boolean useFrontCamera = false;
 
     public CameraBundleBuilder setPreLoaded(boolean preLoaded) {
         this.preLoaded = preLoaded;
@@ -164,10 +165,15 @@ public class CameraBundleBuilder {
         return this;
     }
 
+    public CameraBundleBuilder setUseFrontCamera(boolean useFrontCamera) {
+        this.useFrontCamera = useFrontCamera;
+        return this;
+    }
+
 
     public CameraBundle createCameraBundle() {
         Log.d(TAG, "CameraBundle: " + setResultOnBackPressed);
-        return new CameraBundle(previewIconVisiblity, previewPageRedirection, previewEnableCount, enableDone, doneButtonString, captureButtonDrawable, doneButtonDrawable, min_photo, max_photo, singlePhotoMode, fullscreenMode, manualFocus, enableRotationAnimation, bucketName, className, clearBucket, preLoaded, setResultOnBackPressed);
+        return new CameraBundle(previewIconVisiblity, previewPageRedirection, previewEnableCount, enableDone, doneButtonString, captureButtonDrawable, doneButtonDrawable, min_photo, max_photo, singlePhotoMode, fullscreenMode, manualFocus, enableRotationAnimation, bucketName, className, clearBucket, preLoaded, setResultOnBackPressed, useFrontCamera);
     }
 
 }

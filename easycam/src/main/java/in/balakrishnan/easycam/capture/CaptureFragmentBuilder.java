@@ -13,7 +13,7 @@ public class CaptureFragmentBuilder {
     /**
      * Preview visibility control set true to make it visible
      */
-    private boolean previewIconVisiblity = true;
+    private boolean previewIconVisibility = true;
     /**
      * Set flag as true to enable preview page redirection
      */
@@ -54,6 +54,11 @@ public class CaptureFragmentBuilder {
      */
     private boolean singlePhotoMode = false;
     /**
+     * Set this flag as true, if you need to use front camera as default
+     * If you set this as true, camera facing will be automatically set use front camera.
+     */
+    private boolean useFrontCamera = false;
+    /**
      * Set this flag as true to make preview as full screen preview
      */
     private boolean fullscreenMode = false;
@@ -70,8 +75,8 @@ public class CaptureFragmentBuilder {
 
     private String bucketName = "default";
 
-    private CaptureFragmentBuilder setPreviewIconVisiblity(boolean previewIconVisiblity) {
-        this.previewIconVisiblity = previewIconVisiblity;
+    private CaptureFragmentBuilder setPreviewIconVisibility(boolean previewIconVisibility) {
+        this.previewIconVisibility = previewIconVisibility;
         return this;
     }
 
@@ -120,6 +125,11 @@ public class CaptureFragmentBuilder {
         return this;
     }
 
+    private CaptureFragmentBuilder setUseFrontCamera(boolean useFrontCamera) {
+        this.useFrontCamera = useFrontCamera;
+        return this;
+    }
+
     private CaptureFragmentBuilder setFullscreenMode(boolean fullscreenMode) {
         this.fullscreenMode = fullscreenMode;
         return this;
@@ -154,7 +164,7 @@ public class CaptureFragmentBuilder {
     public CaptureFragmentBuilder setBundle(CameraBundle bundle) {
         setEnableRotationAnimation(bundle.isEnableRotationAnimation());
         setPreviewPageRedirection(bundle.isPreviewPageRedirection());
-        setPreviewIconVisiblity(bundle.isPreviewIconVisibility());
+        setPreviewIconVisibility(bundle.isPreviewIconVisibility());
         setPreviewEnableCount(bundle.isPreviewEnableCount());
         setManualFocus(bundle.isManualFocus());
         setEnableDone(bundle.isEnableDone());
@@ -166,6 +176,7 @@ public class CaptureFragmentBuilder {
         setSinglePhotoMode(bundle.isSinglePhotoMode());
         setFullscreenMode(bundle.isFullscreenMode());
         setBucketName(bundle.getBucket());
+        setUseFrontCamera(bundle.isUseFrontCamera());
         setLaunchNextActivity(bundle.isSetResultOnBackPressed());
         return this;
     }
@@ -175,6 +186,6 @@ public class CaptureFragmentBuilder {
         if (min_photo >= max_photo)
             throw new Exception("Check min_photo and max_photo values");
 
-        return CaptureFragment.newInstance(previewIconVisiblity, previewPageRedirection, previewEnableCount, enableDone, doneButtonString, captureButtonDrawable, doneButtonDrawable, min_photo, max_photo, singlePhotoMode, fullscreenMode, manualFocus, enableRotationAnimation, bucketName, launchNextActivity);
+        return CaptureFragment.newInstance(previewIconVisibility, previewPageRedirection, previewEnableCount, enableDone, doneButtonString, captureButtonDrawable, doneButtonDrawable, min_photo, max_photo, singlePhotoMode, fullscreenMode, manualFocus, enableRotationAnimation, bucketName, launchNextActivity, useFrontCamera);
     }
 }

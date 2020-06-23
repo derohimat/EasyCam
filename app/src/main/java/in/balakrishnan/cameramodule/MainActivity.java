@@ -33,6 +33,7 @@ public class MainActivity extends AppCompatActivity {
                 .setPreviewPageRedirection(true)
                 .setEnableDone(false)
                 .setClearBucket(true)
+                .setUseFrontCamera(true)
                 .createCameraBundle());
         startActivityForResult(intent, 214);
     }

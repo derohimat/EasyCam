@@ -294,6 +294,8 @@ public class CaptureFragment extends Fragment
     private String bucketName = "default";
     private ImageView ivSwitchCamera, ivFlash;
     private FlashType flashType = FlashType.OFF;
+    private boolean launchNextActivity = false;
+    private boolean useFrontCamera = false;
     /**
      * {@link TextureView.SurfaceTextureListener} handles several lifecycle events on a
      * {@link TextureView}.
@@ -429,7 +431,6 @@ public class CaptureFragment extends Fragment
         }
 
     };
-    private boolean launchNextActivity = false;
 
     public CaptureFragment() {
 
@@ -449,7 +450,8 @@ public class CaptureFragment extends Fragment
                                        boolean manualFocus,
                                        boolean enableRotationAnimation,
                                        String bucketName,
-                                       boolean launchNextActivity) {
+                                       boolean launchNextActivity,
+                                       boolean useFrontCamera) {
 
         Bundle args = new Bundle();
         args.putBoolean("previewIconVisibility", previewIconVisibility);
@@ -466,6 +468,7 @@ public class CaptureFragment extends Fragment
         args.putBoolean("manualFocus", manualFocus);
         args.putBoolean("enableRotationAnimation", enableRotationAnimation);
         args.putBoolean("launchNextActivity", launchNextActivity);
+        args.putBoolean("useFrontCamera", useFrontCamera);
         args.putString("bucketName", bucketName);
 
         CaptureFragment fragment = new CaptureFragment();
@@ -541,15 +544,16 @@ public class CaptureFragment extends Fragment
         manualFocus = b.getBoolean("manualFocus", true);
         enableRotationAnimation = b.getBoolean("enableRotationAnimation", true);
         launchNextActivity = b.getBoolean("launchNextActivity", true);
+        useFrontCamera = b.getBoolean("useFrontCamera", false);
         bucketName = b.getString("bucketName", "");
     }
 
-    public boolean isPreviewIconVisiblity() {
+    public boolean isPreviewIconVisibility() {
         return previewIconVisibility;
     }
 
-    public void setPreviewIconVisiblity(boolean previewIconVisiblity) {
-        this.previewIconVisibility = previewIconVisiblity;
+    public void setPreviewIconVisibility(boolean previewIconVisibility) {
+        this.previewIconVisibility = previewIconVisibility;
     }
 
     public boolean isPreviewPageRedirection() {
@@ -651,6 +655,22 @@ public class CaptureFragment extends Fragment
 
     public void setEnableRotationAnimation(boolean enableRotationAnimation) {
         this.enableRotationAnimation = enableRotationAnimation;
+    }
+
+    public boolean isLaunchNextActivity() {
+        return launchNextActivity;
+    }
+
+    public void setLaunchNextActivity(boolean launchNextActivity) {
+        this.launchNextActivity = launchNextActivity;
+    }
+
+    public boolean isUseFrontCamera() {
+        return useFrontCamera;
+    }
+
+    public void setUseFrontCamera(boolean useFrontCamera) {
+        this.useFrontCamera = useFrontCamera;
     }
 
     /**
@@ -874,6 +894,10 @@ public class CaptureFragment extends Fragment
             btnCapture.setBackground(getActivity().getDrawable(captureButtonDrawable));
         if (doneButtonDrawable != 0)
             btnDone.setBackground(getActivity().getDrawable(doneButtonDrawable));
+
+        cameraSelection = useFrontCamera ? CameraSelection.FRONT : CameraSelection.BACK;
+        cameraControllerViewModel.setCameraSelection(cameraSelection);
+
         btnDone.setVisibility(enableDone ? View.VISIBLE : View.GONE);
         btnDone.setText(doneButtonString);
         ivSwitchCamera = view.findViewById(R.id.iv_switch_cam);
