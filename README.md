@@ -6,7 +6,17 @@ We have developed this module while working on one of our project
 
 ### How to use
 1. Add dependency in module gradle file  
-   ` implementation 'in.balakrishnan.easycam:easycam:0.0.3-rc5'`
+
+    Add it in your root build.gradle at the end of repositories:
+    ` allprojects {
+		repositories {
+			...
+			maven { url 'https://jitpack.io' }
+		}
+	} `
+    
+    Add the dependency
+   ` implementation 'com.github.derohimat:EasyCam:1.0'`
    
    ` implementation 'androidx.recyclerview:recyclerview:1.1.0'`
    
@@ -30,6 +40,7 @@ We have developed this module while working on one of our project
                 .setPreviewPageRedirection(true)
                 .setEnableDone(false)
                 .setClearBucket(true)
+                .setUseFrontCamera(true) // put this line if you want to use front camera as default
                 .createCameraBundle());
         startActivityForResult(intent, 214);
   
@@ -63,6 +74,7 @@ The above function requires context and bucket name.
 8. Manual focus
 9. Live preview in full screen or fit to aspect ratio
 10. Delete option in multiple shoot mode  
+11. Use Front Camera Facing as Default  
 
 The standout point in Easy cam is that all components are configurable
 (i.e) Capture button drawable, Done button background and text.
