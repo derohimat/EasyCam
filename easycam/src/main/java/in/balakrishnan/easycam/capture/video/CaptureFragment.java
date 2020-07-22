@@ -35,7 +35,7 @@ public class CaptureFragment extends Camera2Fragment implements Camera2Listener 
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        ImageView button = (ImageView) view.findViewById(R.id.camera_control);
+        ImageView button = view.findViewById(R.id.camera_control);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

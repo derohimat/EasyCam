@@ -186,7 +186,7 @@ public abstract class Camera2Fragment extends Fragment implements Camera2Listene
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        mCameraLayout = (AutoFitTextureView) view.findViewById(getTextureResource());
+        mCameraLayout = view.findViewById(getTextureResource());
         mCamera2Listener = this;
     }
 
